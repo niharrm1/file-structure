@@ -2,12 +2,13 @@
 A powerful CLI tool that generates standardized and scalable file structures for React projects, supporting both new Vite-based projects and existing React applications.
 
 ## 🌟 Features
-⚡ Create new React projects using Vite
-🏗️ Add standardized folder structure to existing React projects
-📦 Built-in Redux setup with authentication boilerplate
-🎣 Custom hooks for API handling and authentication
-🧩 Component templates following best practices
-🎨 Tailwind CSS styling integration
+  
+<br>🏗️ Add standardized folder structure to existing React projects<br>
+<br>🏗️ Add standardized folder structure to existing React projects<br>
+<br>📦 Built-in Redux setup with authentication boilerplate<br>
+<br>🎣 Custom hooks for API handling and authentication<br>
+<br>🧩 Component templates following best practices<br>
+<br>🎨 Tailwind CSS styling integration<br>
 
 
 ## Installation

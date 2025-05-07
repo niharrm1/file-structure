@@ -13,6 +13,26 @@
     "fs-extra": "^10.0.0",
     "inquirer": "^8.2.6"
   },
-  "author": "Your Name",
-  "license": "MIT"
+  "keywords": [
+    "react",
+    "cli",
+    "generator",
+    "file-structure",
+    "boilerplate",
+    "vite",
+    "redux",
+    "template",
+    "project-structure",
+    "react-redux"
+  ],
+  "author": "Nihar, Subhrajeet",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niharrm1/file-structure.git"
+  },
+  "bugs": {
+    "url": "https://github.com/niharrm1/file-structure/issues"
+  },
+  "homepage": "https://github.com/niharrm1/file-structure#readme"
 }
