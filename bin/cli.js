@@ -1,16 +1,28 @@
 #!/usr/bin/env node
 const inquirer = require('inquirer');
 const { generateStructure } = require('../lib/generateStructure');
+const { createViteProject } = require('../lib/createViteProject');
 
 async function promptUser() {
-  console.log("Prompting user...");  // Debugging log
-
   const questions = [
     {
-      type: 'confirm',
-      name: 'confirm',
-      message: 'Do you want to add additional structure to the current React project?',
-      default: true
+      type: 'list',
+      name: 'action',
+      message: 'What would you like to do?',
+      choices: [
+        'Create new React project with file structure',
+        'Add file structure to existing React project'
+      ]
+    },
+    {
+      type: 'input',
+      name: 'projectName',
+      message: 'Enter project name:',
+      when: (answers) => answers.action === 'Create new React project with file structure',
+      validate: (input) => {
+        if (/^([A-Za-z\-\_\d])+$/.test(input)) return true;
+        return 'Project name may only include letters, numbers, underscores and hashes.';
+      }
     }
   ];
 
@@ -18,17 +30,20 @@ async function promptUser() {
 }
 
 async function init() {
-  console.log("Initializing...");  // Debugging log
+  console.log("Initializing...");
 
-  const { confirm } = await promptUser();
-  console.log("User response:", confirm);  // Debugging log
+  const answers = await promptUser();
 
-  if (confirm) {
-    console.log("Generating structure...");  // Debugging log
-    await generateStructure();
+  if (answers.action === 'Create new React project with file structure') {
+    const success = await createViteProject(answers.projectName);
+    if (success) {
+      console.log('Creating file structure in new project...');
+      await generateStructure();
+    }
   } else {
-    console.log("Operation canceled by user.");
+    console.log('Adding file structure to existing project...');
+    await generateStructure();
   }
 }
 
-init();
+init().catch(console.error);
